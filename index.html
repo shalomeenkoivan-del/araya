@@ -2302,8 +2302,13 @@
           var v = this.value / 100;
           video.volume = v;
           if (isMobile) {
-            if (v === 0) video.muted = true;
-            updateMuteButton(v > 0);
+            if (v === 0) {
+              video.muted = true;
+              if (videoControlsWrap) videoControlsWrap.classList.add('slider-hidden');
+              updateMuteButton();
+            } else {
+              updateMuteButton(v > 0);
+            }
           } else {
             video.muted = v === 0;
             updateMuteButton();
