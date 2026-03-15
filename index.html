@@ -2289,7 +2289,9 @@
         if (isMobile && videoControlsWrap) videoControlsWrap.classList.add('slider-hidden');
         videoMute.addEventListener('click', function() {
           video.muted = !video.muted;
-          if (!video.muted) {
+          if (video.muted) {
+            if (isMobile && videoControlsWrap) videoControlsWrap.classList.add('slider-hidden');
+          } else {
             if (isMobile && videoControlsWrap) {
               videoControlsWrap.classList.remove('slider-hidden');
               if (videoVolume) { videoVolume.value = 25; video.volume = 0.25; }
