@@ -1,0 +1,2396 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Araya Sirayn — музыкант, Pop, Dance. Сингл «Пожар Тттравит» из проекта don't help butterflies. Официальный сайт.">
+  <meta name="theme-color" content="#0a0a12">
+  <title>Araya Sirayn — Официальный сайт</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0a12;
+      --bg-secondary: #12121f;
+      --bg-card: rgba(26, 26, 42, 0.85);
+      --accent-blue: #2563eb;
+      --accent-red: #dc2626;
+      --accent-coral: #f43f5e;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --border: rgba(148, 163, 184, 0.15);
+      --glow: rgba(37, 99, 235, 0.35);
+      --font-head: 'Syne', sans-serif;
+      --font-body: 'Outfit', sans-serif;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #f1f5f9;
+      --bg-card: rgba(255, 255, 255, 0.9);
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --border: rgba(15, 23, 42, 0.12);
+      --glow: rgba(37, 99, 235, 0.2);
+    }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.65;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+    .wallpaper {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+    }
+    .wallpaper::before {
+      content: '';
+      position: absolute;
+      inset: -80%;
+      background:
+        radial-gradient(ellipse 70% 60% at 15% 25%, rgba(37, 99, 235, 0.4) 0%, transparent 50%),
+        radial-gradient(ellipse 55% 50% at 85% 75%, rgba(220, 38, 38, 0.35) 0%, transparent 50%),
+        radial-gradient(ellipse 45% 45% at 50% 50%, rgba(244, 63, 94, 0.2) 0%, transparent 45%),
+        radial-gradient(ellipse 40% 35% at 70% 20%, rgba(37, 99, 235, 0.25) 0%, transparent 45%);
+      animation: wallpaperShift 12s ease-in-out infinite alternate;
+    }
+    .wallpaper::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 0%, var(--bg-primary) 100%);
+      pointer-events: none;
+    }
+    @keyframes wallpaperShift {
+      0% { transform: scale(1) rotate(-4deg) translate(0, 0); opacity: 1; }
+      33% { transform: scale(1.2) rotate(2deg) translate(2%, -1%); opacity: 0.95; }
+      66% { transform: scale(1.12) rotate(3deg) translate(-1%, 2%); opacity: 0.98; }
+      100% { transform: scale(1.25) rotate(-2deg) translate(-2%, 1%); opacity: 0.92; }
+    }
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 20px;
+      z-index: 9999;
+      padding: 12px 20px;
+      background: var(--accent-blue);
+      color: #fff;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      text-decoration: none;
+      transition: top var(--transition);
+    }
+    .skip-link:focus {
+      top: 20px;
+    }
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1rem 2rem;
+      background: rgba(10, 10, 18, 0.75);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: var(--transition);
+    }
+    [data-theme="light"] .header {
+      background: rgba(248, 250, 252, 0.85);
+    }
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .logo {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: color var(--transition), transform var(--transition);
+    }
+    .logo:hover {
+      color: var(--accent-blue);
+      transform: scale(1.02);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .nav a {
+      padding: 0.5rem 1rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      border-radius: var(--radius-sm);
+      transition: color var(--transition), background var(--transition), transform var(--transition);
+    }
+    .nav a:hover {
+      color: var(--accent-blue);
+      background: rgba(37, 99, 235, 0.1);
+      transform: translateY(-2px);
+    }
+    .nav a.active {
+      color: var(--accent-blue);
+      background: rgba(37, 99, 235, 0.15);
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .lang-toggle {
+      display: flex;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 4px;
+      gap: 2px;
+    }
+    .lang-toggle button {
+      padding: 6px 12px;
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: var(--transition);
+    }
+    .lang-toggle button:hover {
+      color: var(--text-primary);
+    }
+    .lang-toggle button.active {
+      background: var(--accent-blue);
+      color: #fff;
+    }
+    .theme-toggle {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    .theme-toggle:hover {
+      background: rgba(37, 99, 235, 0.15);
+      border-color: var(--accent-blue);
+    }
+    .theme-toggle svg {
+      width: 22px;
+      height: 22px;
+    }
+    main {
+      padding-top: 72px;
+    }
+    section {
+      min-height: 100vh;
+      padding: 4rem 2rem;
+      max-width: 1280px;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s var(--transition), transform 0.8s var(--transition);
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .section-id {
+      scroll-margin-top: 88px;
+    }
+    .hero {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: center;
+      padding: 2rem 2rem 2rem;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    .hero-video-wrap {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      backface-visibility: hidden;
+      transform: translateZ(0);
+    }
+    .hero-video-square {
+      position: relative;
+      width: 100vmin;
+      height: 100vmin;
+      max-width: 100%;
+      max-height: 100%;
+      flex-shrink: 0;
+      overflow: hidden;
+      border-radius: 12%;
+      backface-visibility: hidden;
+      transform: translateZ(0);
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.06),
+        0 0 60px 15px var(--bg-primary),
+        inset 0 0 40px rgba(0, 0, 0, 0.12);
+    }
+    [data-theme="light"] .hero-video-square {
+      box-shadow:
+        0 0 0 1px rgba(37, 99, 235, 0.15),
+        0 0 32px rgba(37, 99, 235, 0.2),
+        0 0 64px rgba(37, 99, 235, 0.12);
+    }
+    .hero-video-square video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .hero-video-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, #0a0a12 0%, transparent 14%, transparent 86%, #0a0a12 100%),
+        linear-gradient(180deg, rgba(10, 10, 18, 0.5) 0%, rgba(10, 10, 18, 0.8) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+    }
+    .hero-badge {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      background: rgba(37, 99, 235, 0.2);
+      border: 1px solid rgba(37, 99, 235, 0.4);
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent-blue);
+      margin-bottom: 1.5rem;
+      animation: fadeInUp 0.8s ease-out;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition);
+    }
+    .hero-badge:hover {
+      transform: scale(1.08);
+      background: rgba(37, 99, 235, 0.35);
+      border-color: rgba(37, 99, 235, 0.7);
+      box-shadow: 0 0 24px rgba(37, 99, 235, 0.4);
+    }
+    .hero-badge:active {
+      transform: scale(1.02);
+    }
+    .hero-badge:focus-visible {
+      outline: 2px solid var(--accent-blue);
+      outline-offset: 4px;
+    }
+    .hero-title {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+      animation: fadeInUp 0.8s ease-out 0.1s both;
+    }
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+    .hero-release {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      animation: fadeInUp 0.8s ease-out 0.3s both;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+      animation: fadeInUp 0.8s ease-out 0.4s both;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 1.75rem;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-blue), #1d4ed8);
+      color: #fff;
+      box-shadow: 0 4px 20px var(--glow);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px var(--glow);
+    }
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover {
+      border-color: var(--accent-red);
+      color: var(--accent-coral);
+      transform: translateY(-3px);
+    }
+    .video-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 1rem;
+      animation: fadeInUp 0.8s ease-out 0.5s both;
+    }
+    .video-controls button {
+      padding: 0.5rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .video-controls button:hover {
+      background: rgba(37, 99, 235, 0.2);
+    }
+    .section-title {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      margin-bottom: 2rem;
+      letter-spacing: -0.02em;
+    }
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      max-width: 640px;
+    }
+    .bio-layout {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2.5rem;
+      align-items: stretch;
+      max-width: 1000px;
+    }
+    .bio-content {
+      min-width: 0;
+      font-size: 1.05rem;
+      max-width: 720px;
+    }
+    .bio-photo {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      min-height: 0;
+    }
+    .bio-photo-img {
+      display: block;
+      height: 100%;
+      max-height: none;
+      width: auto;
+      max-width: 380px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 6px var(--accent-blue))
+              drop-shadow(0 0 18px rgba(37, 99, 235, 0.65))
+              drop-shadow(0 0 36px rgba(37, 99, 235, 0.35));
+      transition: filter 0.3s ease;
+    }
+    .bio-photo-img:hover {
+      filter: drop-shadow(0 0 10px var(--accent-blue))
+              drop-shadow(0 0 28px rgba(37, 99, 235, 0.8))
+              drop-shadow(0 0 50px rgba(37, 99, 235, 0.4));
+    }
+    .bio-content p {
+      margin-bottom: 1.25rem;
+    }
+    .bio-content strong {
+      color: var(--accent-blue);
+    }
+    .interview-grid {
+      display: grid;
+      gap: 2rem;
+      max-width: 840px;
+    }
+    .interview-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      transition: var(--transition);
+    }
+    .interview-block:hover {
+      border-color: rgba(37, 99, 235, 0.3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+    .interview-block h3 {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent-blue);
+      margin-bottom: 0.75rem;
+    }
+    .interview-block p {
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+    .events-list {
+      display: grid;
+      gap: 1.5rem;
+      max-width: 640px;
+    }
+    .event-cover-link {
+      display: block;
+      flex-shrink: 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .event-cover-link:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35);
+    }
+    .event-cover-link:active {
+      transform: scale(0.98);
+    }
+    .event-cover {
+      width: 140px;
+      height: 140px;
+      min-width: 140px;
+      display: block;
+      border-radius: var(--radius);
+      object-fit: cover;
+      transition: transform var(--transition);
+    }
+    .event-cover-link:hover .event-cover {
+      transform: scale(1.03);
+    }
+    .event-body {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .event-body .event-date,
+    .event-body .event-title,
+    .event-body .event-desc {
+      text-align: center;
+    }
+    .event-title {
+      font-size: 1.1rem;
+      margin: 0;
+      font-family: var(--font-head);
+      font-weight: 600;
+    }
+    .event-desc {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin: 0;
+      line-height: 1.5;
+    }
+    .event-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: var(--transition);
+    }
+    .event-card:hover {
+      border-color: rgba(37, 99, 235, 0.3);
+      transform: translateX(8px);
+    }
+    .event-date {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--accent-blue);
+    }
+    .contacts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 800px;
+    }
+    @media (max-width: 640px) {
+      .contacts-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: var(--bg-card);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+    }
+    .contact-item a {
+      color: var(--accent-blue);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+    .form-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      max-width: 480px;
+    }
+    .form-block h3 {
+      font-family: var(--font-head);
+      font-size: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .form-block input,
+    .form-block textarea {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      transition: border-color var(--transition);
+    }
+    .form-block input:focus,
+    .form-block textarea:focus {
+      outline: none;
+      border-color: var(--accent-blue);
+    }
+    .form-block button[type="submit"] {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, var(--accent-blue), #1d4ed8);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .form-block button[type="submit"]:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px var(--glow);
+    }
+    .form-success {
+      display: none;
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: var(--radius-sm);
+      background: rgba(37, 99, 235, 0.15);
+      border: 1px solid rgba(37, 99, 235, 0.4);
+      color: var(--accent-blue);
+      font-weight: 500;
+      text-align: center;
+    }
+    .form-success.is-visible {
+      display: block;
+    }
+    .form-block .form-error {
+      display: none;
+      margin-top: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--accent-red);
+    }
+    .form-block .form-error.is-visible {
+      display: block;
+    }
+    .section-cta {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+    .section-cta .btn {
+      flex-shrink: 0;
+    }
+    .footer {
+      padding: 2rem;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .footer a {
+      color: var(--accent-blue);
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .header-inner {
+        flex-wrap: wrap;
+      }
+      .nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+      }
+      .hero {
+        padding: 5rem 1rem 2rem;
+      }
+      section {
+        padding: 3rem 1rem;
+      }
+    }
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .burger span {
+      width: 24px;
+      height: 2px;
+      background: var(--text-primary);
+      transition: var(--transition);
+    }
+    @media (max-width: 768px) {
+      .burger {
+        display: flex;
+      }
+      .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-secondary);
+        padding: 1rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .nav.open {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    *:focus-visible {
+      outline: 2px solid var(--accent-blue);
+      outline-offset: 2px;
+    }
+    ::selection {
+      background: rgba(37, 99, 235, 0.35);
+      color: var(--text-primary);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+    .hero-title {
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-blue) 50%, var(--accent-coral) 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    [data-theme="light"] .hero-title {
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-blue) 40%, var(--accent-red) 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .btn-primary:active,
+    .btn-secondary:active {
+      transform: translateY(0);
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-blue), var(--accent-coral));
+      border-radius: 2px;
+      margin-top: 0.75rem;
+    }
+    .interview-block h3::before {
+      content: 'Q';
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      line-height: 28px;
+      text-align: center;
+      background: rgba(37, 99, 235, 0.2);
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-right: 0.5rem;
+      vertical-align: middle;
+    }
+    .event-card .event-date {
+      padding: 0.5rem;
+      background: rgba(37, 99, 235, 0.15);
+      border-radius: var(--radius-sm);
+      text-align: center;
+    }
+    .wallpaper .noise {
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .hero-content .cta-group .btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-content .cta-group .btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .hero-content .cta-group .btn:hover::after {
+      opacity: 1;
+    }
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--accent-blue);
+      transition: width var(--transition), left var(--transition);
+    }
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 80%;
+      left: 10%;
+    }
+    .form-block input::placeholder,
+    .form-block textarea::placeholder {
+      color: var(--text-muted);
+    }
+    .contact-item span {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    footer .footer {
+      padding: 2.5rem 2rem;
+    }
+    .bio-content p:first-of-type::first-letter {
+      font-family: var(--font-head);
+      font-size: 3rem;
+      float: left;
+      line-height: 1;
+      margin-right: 0.5rem;
+      color: var(--accent-blue);
+    }
+    .bio-content .bio-name {
+      color: var(--accent-blue);
+      font-weight: inherit;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 4px 20px var(--glow); }
+      50% { box-shadow: 0 4px 28px rgba(37, 99, 235, 0.5); }
+    }
+    .btn-primary {
+      animation: pulseGlow 4s ease-in-out infinite;
+    }
+    .btn-primary:hover {
+      animation: none;
+    }
+    .hero-badge {
+      animation: fadeInUp 0.8s ease-out, pulseGlow 3s ease-in-out 1s infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .section-title {
+      animation: fadeInUp 0.6s ease-out both;
+    }
+    .interview-block {
+      animation: fadeInUp 0.6s ease-out both;
+    }
+    .interview-grid .interview-block:nth-child(1) { animation-delay: 0.05s; }
+    .interview-grid .interview-block:nth-child(2) { animation-delay: 0.1s; }
+    .interview-grid .interview-block:nth-child(3) { animation-delay: 0.15s; }
+    .interview-grid .interview-block:nth-child(4) { animation-delay: 0.2s; }
+    .interview-grid .interview-block:nth-child(5) { animation-delay: 0.25s; }
+    .interview-grid .interview-block:nth-child(6) { animation-delay: 0.3s; }
+    .interview-grid .interview-block:nth-child(7) { animation-delay: 0.35s; }
+    .interview-grid .interview-block:nth-child(8) { animation-delay: 0.4s; }
+    .interview-grid .interview-block:nth-child(9) { animation-delay: 0.45s; }
+    .event-card {
+      animation: fadeInUp 0.6s ease-out both;
+    }
+    .contact-item {
+      animation: fadeInUp 0.5s ease-out both;
+    }
+    .contacts-grid .contact-item:nth-child(1) { animation-delay: 0.05s; }
+    .contacts-grid .contact-item:nth-child(2) { animation-delay: 0.1s; }
+    .contacts-grid .contact-item:nth-child(3) { animation-delay: 0.15s; }
+    .contacts-grid .contact-item:nth-child(4) { animation-delay: 0.2s; }
+    @media (min-width: 1024px) {
+      .hero-title {
+        font-size: 4.5rem;
+      }
+      .section-title {
+        font-size: 3rem;
+      }
+    }
+    .logo span {
+      font-weight: 400;
+      opacity: 0.9;
+    }
+    @media print {
+      .wallpaper,
+      .hero-video-wrap,
+      .theme-toggle,
+      .lang-toggle,
+      .burger,
+      .video-controls,
+      .skip-link {
+        display: none !important;
+      }
+      .header {
+        position: static;
+        background: #fff;
+        border: none;
+      }
+      body {
+        background: #fff;
+        color: #000;
+      }
+      section {
+        break-inside: avoid;
+        min-height: auto;
+        padding: 2rem 0;
+      }
+      .btn {
+        border: 1px solid #333;
+      }
+    }
+    .section-id:target {
+      scroll-margin-top: 88px;
+    }
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 6px;
+      border-radius: 3px;
+      background: var(--border);
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent-blue);
+      cursor: pointer;
+      transition: transform var(--transition);
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+    }
+    input[type="range"]::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent-blue);
+      cursor: pointer;
+      border: none;
+    }
+    .hero-video-wrap video {
+      transition: opacity 0.5s ease;
+    }
+    .hero-video-wrap video.fade {
+      opacity: 0.3;
+    }
+    .footer p {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .form-block form {
+      display: flex;
+      flex-direction: column;
+    }
+    .section-cta .form-block {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .interview-block h3 {
+      display: flex;
+      align-items: center;
+    }
+    .event-card .event-title {
+      font-family: var(--font-head);
+      font-weight: 600;
+    }
+    .nav-link:focus-visible {
+      outline-offset: 4px;
+    }
+    .btn:focus-visible,
+    .theme-toggle:focus-visible,
+    .lang-toggle button:focus-visible {
+      outline-offset: 3px;
+    }
+    .contact-item a:focus-visible {
+      outline-offset: 2px;
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .btn-primary:hover {
+      background-size: 200% auto;
+    }
+    .section-subtitle {
+      animation: fadeInUp 0.6s ease-out 0.1s both;
+    }
+    .bio-content p {
+      animation: fadeInUp 0.6s ease-out both;
+    }
+    .bio-content p:nth-child(1) { animation-delay: 0.05s; }
+    .bio-content p:nth-child(2) { animation-delay: 0.1s; }
+    .bio-content p:nth-child(3) { animation-delay: 0.15s; }
+    .bio-content p:nth-child(4) { animation-delay: 0.2s; }
+    .events-list {
+      animation: fadeInUp 0.6s ease-out both;
+    }
+    .form-block {
+      animation: fadeInUp 0.6s ease-out 0.2s both;
+    }
+    #contacts .form-block {
+      animation-delay: 0.25s;
+    }
+    .header {
+      animation: fadeInDown 0.5s ease-out;
+    }
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .hero .hero-content > * {
+      will-change: transform;
+    }
+    .section-id.visible .section-title::after {
+      animation: expandWidth 0.6s ease-out 0.3s both;
+    }
+    @keyframes expandWidth {
+      from { width: 0; opacity: 0; }
+      to { width: 60px; opacity: 1; }
+    }
+    .interview-block.visible {
+      animation: fadeInUp 0.6s ease-out both;
+    }
+    .event-card.visible {
+      animation: fadeInUp 0.5s ease-out both;
+    }
+    .contacts-grid .contact-item.visible {
+      animation: fadeInUp 0.5s ease-out both;
+    }
+    html {
+      scroll-padding-top: 88px;
+    }
+    @media (max-width: 480px) {
+      .header {
+        padding: 0.75rem 1rem;
+      }
+      .hero-title {
+        font-size: 2rem;
+      }
+      .cta-group {
+        flex-direction: column;
+      }
+      .cta-group .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .section-cta {
+        flex-direction: column;
+      }
+      .section-cta .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .form-block {
+        padding: 1.5rem;
+      }
+    }
+    .hero-release {
+      font-weight: 500;
+    }
+    [data-theme="light"] .btn-primary {
+      box-shadow: 0 4px 20px rgba(37, 99, 235, 0.25);
+    }
+    [data-theme="light"] .interview-block:hover {
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    }
+    [data-theme="light"] .event-card:hover {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+    .hero .hero-badge,
+    .hero .hero-title,
+    .hero .hero-subtitle,
+    .hero .hero-release,
+    .hero .cta-group,
+    .hero .video-controls {
+      position: relative;
+      z-index: 2;
+    }
+    .section-id#hero .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    @supports (backdrop-filter: blur(20px)) or (-webkit-backdrop-filter: blur(20px)) {
+      .header {
+        background: rgba(10, 10, 18, 0.7);
+      }
+      [data-theme="light"] .header {
+        background: rgba(248, 250, 252, 0.8);
+      }
+    }
+    .btn svg,
+    .btn-primary svg,
+    .btn-secondary svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+    .event-card:only-child {
+      max-width: 100%;
+    }
+    .interview-grid {
+      counter-reset: interview;
+    }
+    .interview-block {
+      counter-increment: interview;
+    }
+    .form-block h3 {
+      color: var(--text-primary);
+    }
+    .contact-item {
+      flex-wrap: wrap;
+    }
+    @media (min-width: 769px) {
+      .nav {
+        display: flex;
+      }
+    }
+    .lang-toggle button.active {
+      font-weight: 600;
+    }
+    .theme-toggle svg path {
+      transition: transform var(--transition);
+    }
+    .theme-toggle:hover svg {
+      transform: rotate(15deg);
+    }
+    .hero-video-wrap video[poster] {
+      object-fit: cover;
+    }
+    .section-cta + .form-block {
+      margin-top: 2rem;
+    }
+    #bio .bio-content,
+    #interview .interview-grid,
+    #events .events-list,
+    #contacts .contacts-grid {
+      position: relative;
+    }
+    .footer p + p {
+      margin-top: 0.5rem;
+    }
+    a[href^="mailto:"]:hover,
+    a[href^="tel:"]:hover {
+      text-decoration: underline;
+    }
+    .interview-block p + p {
+      margin-top: 0.75rem;
+    }
+    .event-desc {
+      margin-top: 0.25rem;
+    }
+    input[type="tel"]:invalid:not(:placeholder-shown) {
+      border-color: var(--accent-red);
+    }
+    input[type="tel"]:valid:not(:placeholder-shown) {
+      border-color: rgba(34, 197, 94, 0.5);
+    }
+    .wallpaper,
+    .wallpaper::before,
+    .wallpaper::after {
+      will-change: auto;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .wallpaper::before {
+        will-change: transform, opacity;
+      }
+    }
+    .noise {
+      mix-blend-mode: overlay;
+    }
+    [data-theme="light"] .noise {
+      mix-blend-mode: soft-light;
+    }
+    .hero-subtitle {
+      font-weight: 400;
+    }
+    .section-subtitle {
+      line-height: 1.6;
+    }
+    .bio-content {
+      letter-spacing: 0.01em;
+    }
+    .interview-block p {
+      text-align: left;
+    }
+    .event-date {
+      flex-shrink: 0;
+    }
+    .contacts-grid {
+      align-items: stretch;
+    }
+    .form-block input,
+    .form-block button {
+      border-radius: var(--radius-sm);
+    }
+    .btn {
+      min-height: 48px;
+    }
+    .theme-toggle,
+    .lang-toggle button {
+      min-width: 44px;
+      min-height: 44px;
+    }
+    .nav a {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .skip-link:focus {
+      outline: 2px solid var(--accent-blue);
+      outline-offset: 2px;
+    }
+    .hero-badge {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .section-title {
+      line-height: 1.2;
+    }
+    .event-card {
+      align-items: center;
+    }
+    @media (max-width: 640px) {
+      .event-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .event-date {
+        min-width: auto;
+      }
+    }
+    .footer a + a {
+      margin-left: 0.5rem;
+    }
+    @media (max-width: 480px) {
+      .footer a + a {
+        margin-left: 0;
+        display: block;
+        margin-top: 0.25rem;
+      }
+    }
+    .form-block form button[type="submit"]:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    .form-block form button[type="submit"]:not(:disabled):hover {
+      opacity: 1;
+    }
+    html.lang-en .hero-release {
+      font-style: normal;
+    }
+    .logo {
+      white-space: nowrap;
+    }
+    .header-inner .logo {
+      flex-shrink: 0;
+    }
+    .nav {
+      flex: 1;
+      justify-content: center;
+    }
+    @media (min-width: 1280px) {
+      .header-inner {
+        padding: 0 1rem;
+      }
+      section {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
+    .bio-content p:first-of-type {
+      overflow: hidden;
+    }
+    @media (min-width: 641px) and (max-width: 1023px) {
+      .hero {
+        padding: 5rem 2rem;
+      }
+      .section-title {
+        font-size: 2.25rem;
+      }
+      .interview-grid {
+        grid-template-columns: 1fr;
+      }
+      .contacts-grid {
+        gap: 1.5rem;
+      }
+    }
+    @media (min-width: 1024px) {
+      .interview-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .interview-grid .interview-block:nth-child(odd) {
+        animation-delay: calc(0.05s * (var(--i, 1)));
+      }
+      .interview-grid .interview-block:nth-child(even) {
+        animation-delay: calc(0.05s * (var(--i, 2)));
+      }
+    }
+    .section-cta {
+      gap: 1.5rem;
+    }
+    .form-block h3 {
+      font-weight: 600;
+    }
+    .contact-item a {
+      word-break: break-all;
+    }
+    @media (max-width: 360px) {
+      .logo {
+        font-size: 1.25rem;
+      }
+      .hero-title {
+        font-size: 1.75rem;
+      }
+      .btn {
+        padding: 0.875rem 1.25rem;
+        font-size: 0.95rem;
+      }
+    }
+    .hero-video-overlay {
+      transition: opacity 0.3s ease;
+    }
+    body.loaded .hero-video-overlay {
+      opacity: 1;
+    }
+    .nav-link.active {
+      font-weight: 600;
+    }
+    .footer {
+      margin-top: 2rem;
+    }
+    main {
+      min-height: 100vh;
+    }
+    section:last-of-type {
+      padding-bottom: 4rem;
+    }
+    .event-card .event-body {
+      flex: 1;
+      min-width: 0;
+    }
+    .event-card .event-date {
+      flex-shrink: 0;
+    }
+    input[type="range"] {
+      cursor: pointer;
+    }
+    .video-controls {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .video-controls input[type="range"] {
+      flex: 1;
+      min-width: 80px;
+      max-width: 120px;
+    }
+    .lang-toggle {
+      flex-shrink: 0;
+    }
+    .header-actions {
+      flex-shrink: 0;
+    }
+    .wallpaper .noise {
+      animation: none;
+    }
+    .interview-block:hover h3 {
+      color: var(--accent-blue);
+    }
+    .event-card:hover .event-date {
+      background: rgba(37, 99, 235, 0.25);
+    }
+    .form-block:hover {
+      border-color: rgba(37, 99, 235, 0.2);
+    }
+    .contact-item:hover {
+      border-color: rgba(37, 99, 235, 0.25);
+    }
+    .section-title:hover::after {
+      width: 80px;
+      transition: width 0.4s var(--transition);
+    }
+    .btn-primary:focus-visible,
+    .btn-secondary:focus-visible {
+      outline: 2px solid var(--accent-blue);
+      outline-offset: 3px;
+    }
+    .theme-toggle:focus-visible {
+      outline: 2px solid var(--accent-blue);
+    }
+    .lang-btn:focus-visible {
+      outline: 2px solid var(--accent-blue);
+      outline-offset: 2px;
+    }
+    .skip-link:focus {
+      outline: 2px solid #fff;
+      outline-offset: 2px;
+    }
+    @media (hover: none) {
+      .btn-primary:hover,
+      .btn-secondary:hover,
+      .nav-link:hover,
+      .event-card:hover,
+      .interview-block:hover {
+        transform: none;
+      }
+      .btn-primary:active,
+      .btn-secondary:active {
+        transform: scale(0.98);
+      }
+    }
+    .hero-content {
+      width: 100%;
+    }
+    .section-subtitle {
+      width: 100%;
+    }
+    .bio-content {
+      width: 100%;
+    }
+    .interview-grid {
+      width: 100%;
+    }
+    .events-list {
+      width: 100%;
+    }
+    .contacts-grid {
+      width: 100%;
+    }
+    .form-block {
+      width: 100%;
+      max-width: 480px;
+    }
+    #contacts .contacts-grid + .section-cta {
+      margin-top: 2.5rem;
+    }
+    #contacts .form-block {
+      margin-top: 2.5rem;
+    }
+    .footer p:first-child {
+      font-weight: 500;
+    }
+    .footer a {
+      font-weight: 500;
+    }
+    [data-theme="light"] .hero-badge {
+      background: rgba(37, 99, 235, 0.15);
+      border-color: rgba(37, 99, 235, 0.35);
+    }
+    [data-theme="light"] .btn-secondary:hover {
+      background: rgba(244, 63, 94, 0.08);
+    }
+    .hero .hero-content .hero-badge {
+      align-self: center;
+    }
+    .cta-group {
+      align-items: center;
+    }
+    .section-cta {
+      align-items: flex-start;
+    }
+    @media (max-width: 768px) {
+      .bio-layout {
+        grid-template-columns: 1fr;
+        align-items: center;
+      }
+      .bio-photo {
+        align-items: center;
+      }
+      .bio-photo-img {
+        height: auto;
+        max-height: 320px;
+      }
+      .section-cta {
+        align-items: stretch;
+      }
+      .section-cta .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+    .interview-block h3 {
+      margin-bottom: 0.5rem;
+    }
+    .interview-block p {
+      margin: 0;
+    }
+    .event-title {
+      margin: 0 0 0.25rem 0;
+    }
+    .event-desc {
+      margin: 0;
+    }
+    .form-block h3 {
+      margin-bottom: 1rem;
+    }
+    .form-block input {
+      margin-bottom: 0.75rem;
+    }
+    .form-block input:last-of-type {
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      margin-bottom: 1.5rem;
+    }
+    .section-subtitle {
+      margin-bottom: 2rem;
+    }
+    #bio .section-cta {
+      margin-top: 2.5rem;
+    }
+    #interview .section-cta {
+      margin-top: 2.5rem;
+    }
+    #events .section-cta {
+      margin-top: 2.5rem;
+    }
+    #contacts .section-cta {
+      margin-top: 2.5rem;
+    }
+    .hero .cta-group .btn {
+      flex: 0 1 auto;
+    }
+    @media (max-width: 640px) {
+      .hero .cta-group .btn {
+        flex: 1 1 100%;
+      }
+    }
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .logo,
+    .nav a,
+    .section-title,
+    .btn {
+      -webkit-tap-highlight-color: transparent;
+    }
+    @media (orientation: landscape) and (max-height: 500px) {
+      .hero {
+        min-height: auto;
+        padding: 5rem 2rem 2rem;
+      }
+    }
+    .header {
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+    }
+    .bio-content p {
+      text-indent: 0;
+    }
+    .interview-block {
+      text-indent: 0;
+    }
+    .event-body {
+      text-indent: 0;
+    }
+    .form-block form {
+      margin: 0;
+    }
+    .footer p {
+      padding: 0;
+    }
+    .hero-video-wrap video {
+      min-width: 100%;
+      min-height: 100%;
+    }
+    .header-inner .logo {
+      text-decoration: none;
+    }
+    .nav-link {
+      text-decoration: none;
+    }
+    .btn {
+      text-decoration: none;
+    }
+    .footer a {
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    .contact-item a {
+      text-decoration: none;
+    }
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+    @media (min-width: 769px) {
+      .header-actions .burger {
+        display: none;
+      }
+    }
+    .nav.open .nav-link {
+      padding: 0.75rem 1rem;
+    }
+    .nav.open {
+      gap: 0.25rem;
+    }
+    .hero .hero-video-overlay {
+      z-index: 1;
+    }
+    .hero .hero-content {
+      z-index: 2;
+    }
+    .hero-video-wrap {
+      z-index: 0;
+    }
+    main {
+      position: relative;
+      z-index: 1;
+    }
+    .footer {
+      position: relative;
+      z-index: 1;
+    }
+    .wallpaper {
+      z-index: -1;
+    }
+    .header {
+      z-index: 1000;
+    }
+    .skip-link {
+      z-index: 9999;
+    }
+    .section-id {
+      position: relative;
+    }
+    .interview-block,
+    .event-card,
+    .form-block,
+    .contact-item {
+      position: relative;
+    }
+    .btn-primary .btn-icon,
+    .btn-secondary .btn-icon {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+    }
+    .cta-group .btn + .btn {
+      margin-left: 0;
+    }
+    .section-cta .btn + .btn {
+      margin-left: 0;
+    }
+    .section-cta .form-block {
+      margin-top: 2rem;
+    }
+    #bio .form-block,
+    #interview .form-block,
+    #events .form-block,
+    #contacts .form-block {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .event-card .event-date {
+      font-variant-numeric: tabular-nums;
+    }
+    .hero-release {
+      font-variant-numeric: tabular-nums;
+    }
+    .footer p {
+      line-height: 1.6;
+    }
+    .section-subtitle {
+      font-weight: 400;
+    }
+    .bio-content {
+      font-weight: 400;
+    }
+    .interview-block p {
+      font-weight: 400;
+    }
+    .event-desc {
+      font-weight: 400;
+    }
+    .form-block input {
+      font-weight: 400;
+    }
+    .form-block button {
+      font-weight: 600;
+    }
+    .contact-item a {
+      font-weight: 500;
+    }
+    .logo {
+      font-weight: 800;
+    }
+    .section-title {
+      font-weight: 700;
+    }
+    .hero-title {
+      font-weight: 800;
+    }
+    .hero-badge {
+      font-weight: 600;
+    }
+    .btn {
+      font-weight: 600;
+    }
+    .event-title {
+      font-weight: 600;
+    }
+    .interview-block h3 {
+      font-weight: 600;
+    }
+    .form-block h3 {
+      font-weight: 600;
+    }
+    .hero-form {
+      background: rgba(26, 26, 42, 0.9);
+      border-color: rgba(148, 163, 184, 0.2);
+    }
+    [data-theme="light"] .hero-form {
+      background: rgba(26, 26, 42, 0.9);
+    }
+    .hero {
+      position: relative;
+    }
+    .hero-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      padding: 2rem 2rem 4.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      background: transparent;
+    }
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .hero-cta-row .btn {
+      flex-shrink: 0;
+    }
+    .hero-bottom .video-controls {
+      margin-top: 0;
+    }
+    .btn-commercial {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 1rem 1.75rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .btn-commercial:hover {
+      border-color: var(--accent-blue);
+      background: rgba(37, 99, 235, 0.15);
+      transform: translateY(-2px);
+    }
+    .hero-form-wrap {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.4s ease, opacity 0.3s ease;
+      width: 100%;
+      max-width: 400px;
+    }
+    .hero-form-wrap.is-open {
+      max-height: 260px;
+      opacity: 1;
+    }
+    .hero-form-wrap .form-block {
+      margin-top: 1rem;
+      padding: 1.25rem;
+    }
+    .hero-form-wrap .form-block h3 {
+      display: none;
+    }
+    @media (max-width: 640px) {
+      .hero-bottom {
+        padding: 1.5rem 1rem 3rem;
+      }
+      .hero-cta-row {
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+      }
+      .hero-cta-row .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .btn-commercial {
+        width: 100%;
+        max-width: 320px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link" data-i18n="skip">Перейти к контенту</a>
+  <div class="wallpaper" aria-hidden="true"><div class="noise" aria-hidden="true"></div></div>
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo" data-i18n="logo">Araya Sirayn</a>
+      <nav class="nav" id="nav">
+        <a href="#hero" class="nav-link active" data-i18n="nav_home">Главная</a>
+        <a href="#bio" class="nav-link" data-i18n="nav_bio">Биография</a>
+        <a href="#interview" class="nav-link" data-i18n="nav_interview">Интервью</a>
+        <a href="#events" class="nav-link" data-i18n="nav_events">Лента событий</a>
+        <a href="#contacts" class="nav-link" data-i18n="nav_contacts">Контакты</a>
+      </nav>
+      <div class="header-actions">
+        <div class="lang-toggle">
+          <button type="button" class="lang-btn active" data-lang="ru">RU</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <button type="button" class="theme-toggle" aria-label="Переключить тему" id="themeToggle">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+        </button>
+        <button type="button" class="burger" id="burger" aria-label="Меню">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+    <section id="hero" class="hero section-id">
+      <div class="hero-video-wrap">
+        <div class="hero-video-square">
+          <video id="heroVideo" playsinline muted loop autoplay>
+            <source src="media/video.mp4" type="video/mp4">
+          </video>
+          <div class="hero-video-overlay"></div>
+        </div>
+      </div>
+      <div class="hero-content">
+        <a href="#events" class="hero-badge" data-i18n="hero_badge">Новый релиз</a>
+        <h1 class="hero-title" data-i18n="hero_title">Araya Sirayn</h1>
+        <p class="hero-release" data-i18n="hero_release">Сингл «Пожар Тттравит» — 12.03.2026</p>
+        <p class="hero-subtitle" data-i18n="hero_subtitle">Pop · Dance</p>
+      </div>
+      <div class="hero-bottom">
+        <div class="video-controls hero-video-controls">
+          <button type="button" id="videoMute" data-i18n="video_sound">Звук вкл</button>
+          <input type="range" id="videoVolume" min="0" max="100" value="0" style="width: 100px;">
+        </div>
+        <div class="hero-cta-row">
+          <a href="https://muzuslugi.com/DjQfz" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="btn_listen">Слушать на всех площадках</a>
+          <a href="https://www.youtube.com/watch?v=2D8KmyxJGoY" class="btn btn-secondary" target="_blank" rel="noopener">YouTube</a>
+        </div>
+        <button type="button" class="btn btn-commercial" id="heroCommercialBtn" data-i18n="form_title">Для коммерческих предложений</button>
+        <div class="hero-form-wrap" id="heroFormWrap">
+          <div class="form-block hero-form">
+            <form id="form0" action="https://formspree.io/f/xbdzawgd" method="POST">
+              <input type="hidden" name="_subject" value="Заявка с лендинга Araya Sirayn">
+              <input type="tel" name="phone" placeholder="Номер телефона" data-i18n-placeholder="form_phone" inputmode="tel" autocomplete="tel" required>
+              <span class="form-error" role="alert"></span>
+              <button type="submit" data-i18n="form_submit">Отправить заявку</button>
+            </form>
+            <p class="form-success" data-i18n="form_success" aria-live="polite"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="bio" class="section-id">
+      <h2 class="section-title" data-i18n="bio_title">Биография</h2>
+      <p class="section-subtitle" data-i18n="bio_subtitle">Путь артиста: "от костра и до студии"</p>
+      <div class="bio-layout">
+        <div class="bio-content">
+        <p data-i18n="bio_p1">Музыкант <span class="bio-name">Арая Сирэйн</span> (<span class="bio-name">Araya Sirayn</span>), <span class="bio-name">Александра Мистрикова</span>, готовится к выходу своего первого официального сингла <span class="bio-name">«Тттравит»</span>, открывающего многолетний проект <span class="bio-name">«don't help butterflies»</span>. Артист, для которого музыка стала способом дарить тепло и поддержку, намерен исследовать разные жанры, начиная с энергичного танцевального звучания. Её философия проста: не жанр, а точная передача энергии и смысла стоит во главе творческого процесса.</p>
+        <p data-i18n="bio_p2">История <span class="bio-name">Araya</span> — это путь от тихих песен на школьной лестнице до уверенного владения сценой. Выросшая в музыкальной семье, она рано поняла объединяющую силу искусства. Первые пробы пера, написанные под гитару, находили отклик у сверстников, а работа ведущей в караоке-клубах закалила характер и подарила бесценный навык живого контакта с аудиторией.</p>
+        <p data-i18n="bio_p3">Поворотным моментом стала организация с единомышленниками коллектива KAVIAR, а также выступления на благотворительных мероприятиях. Однако истинный творческий прорыв случился, когда <span class="bio-name">Арая Сирэйн</span> решила полностью посвятить себя личным проектам, углубившись в изучение производства музыки. Теперь её песни — это не только искренние тексты, но и сложные аранжировки, созданные с помощью современных технологий.</p>
+        <p data-i18n="bio_p4">Грядущий проект <span class="bio-name">«don't help butterflies»</span> — это концептуальное высказывание о личном пути, ошибках и принятии себя. Дебютный релиз знаменует начало нового, уверенного этапа в карьере артиста, открытого к экспериментам и сотрудничествам.</p>
+        </div>
+        <div class="bio-photo">
+          <img src="media/foto.png" alt="Araya Sirayn" class="bio-photo-img" width="280" height="400">
+        </div>
+      </div>
+      <div class="section-cta">
+        <a href="https://muzuslugi.com/DjQfz" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="btn_listen">Слушать на всех площадках</a>
+        <a href="https://www.youtube.com/watch?v=2D8KmyxJGoY" class="btn btn-secondary" target="_blank" rel="noopener">YouTube</a>
+      </div>
+      <div class="form-block" style="margin-top: 2rem;">
+        <h3 data-i18n="form_title">Для коммерческих предложений</h3>
+        <form id="form1" action="https://formspree.io/f/xbdzawgd" method="POST">
+          <input type="hidden" name="_subject" value="Заявка с лендинга Araya Sirayn">
+          <input type="tel" name="phone" placeholder="Номер телефона" data-i18n-placeholder="form_phone" inputmode="tel" autocomplete="tel" required>
+          <span class="form-error" role="alert"></span>
+          <button type="submit" data-i18n="form_submit">Отправить заявку</button>
+        </form>
+        <p class="form-success" data-i18n="form_success" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section id="interview" class="section-id">
+      <h2 class="section-title" data-i18n="interview_title">Интервью</h2>
+      <p class="section-subtitle" data-i18n="interview_subtitle">О релизах, пути и творчестве</p>
+      <div class="interview-grid">
+        <div class="interview-block">
+          <h3 data-i18n="iq1_q">Релиз</h3>
+          <p data-i18n="iq1_a">Первый официальный сингл — «Пожар Тттравит», проект «don't help butterflies». Жанр: Pop, Dance.</p>
+        </div>
+        <div class="interview-block">
+          <h3 data-i18n="iq2_q">Что вдохновило стать артистом</h3>
+          <p data-i18n="iq2_a">Музыка в семье, вечера у костра с гитарой, первая песня в школе и отклик одноклассников, педагог по гитаре, работа ведущей в караоке — осознание, что музыкой можно объединять людей и делать вечера яркими.</p>
+        </div>
+        <div class="interview-block">
+          <h3 data-i18n="iq3_q">Личная история и «don't help butterflies»</h3>
+          <p data-i18n="iq3_a">Случайная встреча с иностранкой и её татуировка с геометрическими фигурами, каждая из которых — жизненный этап, легла в основу концепции проекта.</p>
+        </div>
+        <div class="interview-block">
+          <h3 data-i18n="iq4_q">Стиль и жанр</h3>
+          <p data-i18n="iq4_a">Главная цель — не жанр, а передача энергии и смысла. Первый релиз — танцевальный; планы расширять стилистику.</p>
+        </div>
+        <div class="interview-block">
+          <h3 data-i18n="iq5_q">Карьера: первые шаги</h3>
+          <p data-i18n="iq5_a">Школа, корпоратив в 14 лет, выпускной, караоке-клубы, KAVIAR, благотворительные выступления, новогодние корпоративы. После переезда — фокус на личных проектах и первый официальный релиз «Тттравит».</p>
+        </div>
+        <div class="interview-block">
+          <h3 data-i18n="iq6_q">Посыл творчества</h3>
+          <p data-i18n="iq6_a">Все мы можем ошибаться — это твой путь. Принимать последствия решений, проживать каждый миг, в трудностях учиться радоваться и узнавать себя.</p>
+        </div>
+        <div class="interview-block">
+          <h3 data-i18n="iq7_q">Уникальное в звучании</h3>
+          <p data-i18n="iq7_a">Смысл и поддержка в песнях, вокал: высокие ноты, элементы йодля, твэнга, компрессии. Отклик слушателей важнее наград.</p>
+        </div>
+        <div class="interview-block">
+          <h3 data-i18n="iq8_q">Достижения</h3>
+          <p data-i18n="iq8_a">Самое важное — видеть отклик в душе людей: искренние улыбки и счастливые взгляды. Готова к сотрудничествам с артистами и продюсерами.</p>
+        </div>
+        <div class="interview-block">
+          <h3 data-i18n="iq9_q">Планы</h3>
+          <p data-i18n="iq9_a">Реализация проекта «don't help butterflies» — концепция через четыре альбома. Ближайший шаг — презентация сингла «Пожар Тттравит» и развитие карьеры.</p>
+        </div>
+      </div>
+      <div class="section-cta">
+        <a href="https://muzuslugi.com/DjQfz" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="btn_listen">Слушать на всех площадках</a>
+        <a href="https://www.youtube.com/watch?v=2D8KmyxJGoY" class="btn btn-secondary" target="_blank" rel="noopener">YouTube</a>
+      </div>
+      <div class="form-block" style="margin-top: 2rem;">
+        <h3 data-i18n="form_title">Для коммерческих предложений</h3>
+        <form id="form2" action="https://formspree.io/f/xbdzawgd" method="POST">
+          <input type="hidden" name="_subject" value="Заявка с лендинга Araya Sirayn">
+          <input type="tel" name="phone" placeholder="Номер телефона" data-i18n-placeholder="form_phone" inputmode="tel" autocomplete="tel" required>
+          <span class="form-error" role="alert"></span>
+          <button type="submit" data-i18n="form_submit">Отправить заявку</button>
+        </form>
+        <p class="form-success" data-i18n="form_success" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section id="events" class="section-id">
+      <h2 class="section-title" data-i18n="events_title">Лента событий</h2>
+      <p class="section-subtitle" data-i18n="events_subtitle">Релизы и выступления</p>
+      <div class="events-list">
+        <div class="event-card">
+          <a href="https://muzuslugi.com/DjQfz" class="event-cover-link" target="_blank" rel="noopener" title="Слушать на всех площадках">
+            <img src="media/cover.jpg" alt="Обложка сингла Пожар Тттравит" class="event-cover" width="140" height="140">
+          </a>
+          <div class="event-body">
+            <span class="event-date">12.03.2026</span>
+            <h4 class="event-title" data-i18n="event1_title">Сингл «Пожар Тттравит»</h4>
+            <p class="event-desc" data-i18n="event1_desc">Выход первого официального сингла Araya Sirayn. Проект «don't help butterflies».</p>
+          </div>
+        </div>
+      </div>
+      <div class="section-cta">
+        <a href="https://muzuslugi.com/DjQfz" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="btn_listen">Слушать на всех площадках</a>
+        <a href="https://www.youtube.com/watch?v=2D8KmyxJGoY" class="btn btn-secondary" target="_blank" rel="noopener">YouTube</a>
+      </div>
+      <div class="form-block" style="margin-top: 2rem;">
+        <h3 data-i18n="form_title">Для коммерческих предложений</h3>
+        <form id="form3" action="https://formspree.io/f/xbdzawgd" method="POST">
+          <input type="hidden" name="_subject" value="Заявка с лендинга Araya Sirayn">
+          <input type="tel" name="phone" placeholder="Номер телефона" data-i18n-placeholder="form_phone" inputmode="tel" autocomplete="tel" required>
+          <span class="form-error" role="alert"></span>
+          <button type="submit" data-i18n="form_submit">Отправить заявку</button>
+        </form>
+        <p class="form-success" data-i18n="form_success" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section id="contacts" class="section-id">
+      <h2 class="section-title" data-i18n="contacts_title">Контакты</h2>
+      <p class="section-subtitle" data-i18n="contacts_subtitle">Связь, букинг, сотрудничество</p>
+      <div class="contacts-grid">
+        <div class="contact-item">
+          <span data-i18n="contact_email">Почта:</span>
+          <a href="mailto:arayasirayn@gmail.com">arayasirayn@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <span>Telegram:</span>
+          <a href="https://t.me/Araya_Sirayn" target="_blank" rel="noopener">@Araya_Sirayn</a>
+        </div>
+        <div class="contact-item">
+          <span data-i18n="contact_booking">Менеджер:</span>
+          <a href="tel:+79656059646">+7 965 605 9646</a>
+        </div>
+        <div class="contact-item">
+          <span>VK:</span>
+          <a href="https://vk.com/araya_sirayn_music" target="_blank" rel="noopener">@araya_sirayn_music</a>
+        </div>
+      </div>
+      <div class="section-cta">
+        <a href="https://muzuslugi.com/DjQfz" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="btn_listen">Слушать на всех площадках</a>
+        <a href="https://www.youtube.com/watch?v=2D8KmyxJGoY" class="btn btn-secondary" target="_blank" rel="noopener">YouTube</a>
+      </div>
+      <div class="form-block" style="margin-top: 2rem;">
+        <h3 data-i18n="form_title">Для коммерческих предложений</h3>
+        <form id="form4" action="https://formspree.io/f/xbdzawgd" method="POST">
+          <input type="hidden" name="_subject" value="Заявка с лендинга Araya Sirayn">
+          <input type="tel" name="phone" placeholder="Номер телефона" data-i18n-placeholder="form_phone" inputmode="tel" autocomplete="tel" required>
+          <span class="form-error" role="alert"></span>
+          <button type="submit" data-i18n="form_submit">Отправить заявку</button>
+        </form>
+        <p class="form-success" data-i18n="form_success" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <p>© 2026 Araya Sirayn — «don't help butterflies».</p>
+    <p><a href="mailto:arayasirayn@gmail.com">arayasirayn@gmail.com</a></p>
+  </footer>
+
+  <script>
+    /**
+     * Araya Sirayn — Official Landing
+     * Features: RU/EN i18n, dark/light theme, scroll animations, video hero,
+     * contact forms (mailto), streaming + YouTube CTAs on every section,
+     * responsive layout, live wallpaper gradient, focus management.
+     * Media: video.mp4 in ./media/ for hero background.
+     */
+    (function() {
+      'use strict';
+      const i18n = {
+        ru: {
+          skip: 'Перейти к контенту',
+          logo: 'Araya Sirayn',
+          nav_home: 'Главная',
+          nav_bio: 'Биография',
+          nav_interview: 'Интервью',
+          nav_events: 'Лента событий',
+          nav_contacts: 'Контакты',
+          hero_badge: 'Новый релиз',
+          hero_title: 'Araya Sirayn',
+          hero_subtitle: 'Pop · Dance',
+          hero_release: 'Сингл «Пожар Тттравит» — 12.03.2026',
+          btn_listen: 'Слушать на всех площадках',
+          video_sound: 'Звук вкл',
+          bio_title: 'Биография',
+          bio_subtitle: 'Путь артиста: "от костра и до студии"',
+          bio_p1: 'Музыкант <span class="bio-name">Арая Сирэйн</span> (<span class="bio-name">Araya Sirayn</span>), <span class="bio-name">Александра Мистрикова</span>, готовится к выходу своего первого официального сингла <span class="bio-name">«Тттравит»</span>, открывающего многолетний проект <span class="bio-name">«don\'t help butterflies»</span>. Артист, для которого музыка стала способом дарить тепло и поддержку, намерен исследовать разные жанры, начиная с энергичного танцевального звучания. Её философия проста: не жанр, а точная передача энергии и смысла стоит во главе творческого процесса.',
+          bio_p2: 'История <span class="bio-name">Araya</span> — это путь от тихих песен на школьной лестнице до уверенного владения сценой. Выросшая в музыкальной семье, она рано поняла объединяющую силу искусства. Первые пробы пера, написанные под гитару, находили отклик у сверстников, а работа ведущей в караоке-клубах закалила характер и подарила бесценный навык живого контакта с аудиторией.',
+          bio_p3: 'Поворотным моментом стала организация с единомышленниками коллектива KAVIAR, а также выступления на благотворительных мероприятиях. Однако истинный творческий прорыв случился, когда <span class="bio-name">Арая Сирэйн</span> решила полностью посвятить себя личным проектам, углубившись в изучение производства музыки. Теперь её песни — это не только искренние тексты, но и сложные аранжировки, созданные с помощью современных технологий.',
+          bio_p4: 'Грядущий проект <span class="bio-name">«don\'t help butterflies»</span> — это концептуальное высказывание о личном пути, ошибках и принятии себя. Дебютный релиз знаменует начало нового, уверенного этапа в карьере артиста, открытого к экспериментам и сотрудничествам.',
+          form_title: 'Для коммерческих предложений',
+          form_phone: 'Номер телефона',
+          form_submit: 'Отправить заявку',
+          form_success: 'Заявка отправлена. Спасибо!',
+          form_phone_error: 'Введите корректный номер (минимум 10 цифр)',
+          interview_title: 'Интервью',
+          interview_subtitle: 'О релизах, пути и творчестве',
+          iq1_q: 'Релиз',
+          iq1_a: 'Первый официальный сингл — «Пожар Тттравит», проект «don\'t help butterflies». Жанр: Pop, Dance.',
+          iq2_q: 'Что вдохновило стать артистом',
+          iq2_a: 'Музыка в семье, вечера у костра с гитарой, первая песня в школе и отклик одноклассников, педагог по гитаре, работа ведущей в караоке — осознание, что музыкой можно объединять людей и делать вечера яркими.',
+          iq3_q: 'Личная история и «don\'t help butterflies»',
+          iq3_a: 'Случайная встреча с иностранкой и её татуировка с геометрическими фигурами, каждая из которых — жизненный этап, легла в основу концепции проекта.',
+          iq4_q: 'Стиль и жанр',
+          iq4_a: 'Главная цель — не жанр, а передача энергии и смысла. Первый релиз — танцевальный; планы расширять стилистику.',
+          iq5_q: 'Карьера: первые шаги',
+          iq5_a: 'Школа, корпоратив в 14 лет, выпускной, караоке-клубы, KAVIAR, благотворительные выступления, новогодние корпоративы. После переезда — фокус на личных проектах и первый официальный релиз «Тттравит».',
+          iq6_q: 'Посыл творчества',
+          iq6_a: 'Все мы можем ошибаться — это твой путь. Принимать последствия решений, проживать каждый миг, в трудностях учиться радоваться и узнавать себя.',
+          iq7_q: 'Уникальное в звучании',
+          iq7_a: 'Смысл и поддержка в песнях, вокал: высокие ноты, элементы йодля, твэнга, компрессии. Отклик слушателей важнее наград.',
+          iq8_q: 'Достижения',
+          iq8_a: 'Самое важное — видеть отклик в душе людей: искренние улыбки и счастливые взгляды. Готова к сотрудничествам с артистами и продюсерами.',
+          iq9_q: 'Планы',
+          iq9_a: 'Реализация проекта «don\'t help butterflies» — концепция через четыре альбома. Ближайший шаг — презентация сингла «Пожар Тттравит» и развитие карьеры.',
+          events_title: 'Лента событий',
+          events_subtitle: 'Релизы и выступления',
+          event1_title: 'Сингл «Пожар Тттравит»',
+          event1_desc: 'Выход первого официального сингла Araya Sirayn. Проект «don\'t help butterflies».',
+          contacts_title: 'Контакты',
+          contacts_subtitle: 'Связь, букинг, сотрудничество',
+          contact_email: 'Почта:',
+          contact_booking: 'Менеджер:'
+        },
+        en: {
+          skip: 'Skip to content',
+          logo: 'Araya Sirayn',
+          nav_home: 'Home',
+          nav_bio: 'Biography',
+          nav_interview: 'Interview',
+          nav_events: 'Events',
+          nav_contacts: 'Contacts',
+          hero_badge: 'New release',
+          hero_title: 'Araya Sirayn',
+          hero_subtitle: 'Pop · Dance',
+          hero_release: 'Single «Пожар Тттравит» — March 12, 2026',
+          btn_listen: 'Listen on all platforms',
+          video_sound: 'Sound on',
+          bio_title: 'Biography',
+          bio_subtitle: 'From the campfire to the studio',
+          bio_p1: 'Musician <span class="bio-name">Araya Sirayn</span> (<span class="bio-name">Alexandra Mistrikova</span>) is releasing her first official single <span class="bio-name">«Тттравит»</span>, opening the long-term project <span class="bio-name">«don\'t help butterflies»</span>. For her, music is a way to give warmth and support; she explores different genres, starting with energetic dance sound. Her philosophy: not genre, but the precise transmission of energy and meaning leads the creative process.',
+          bio_p2: '<span class="bio-name">Araya</span>\'s story is a path from quiet songs on the school stairs to confident stage presence. Growing up in a musical family, she understood the unifying power of art early. First songs written to the guitar found response among peers; hosting in karaoke clubs built character and live connection with the audience.',
+          bio_p3: 'A turning point was co-founding the collective KAVIAR and performing at charity events. The real creative breakthrough came when <span class="bio-name">Araya Sirayn</span> dedicated herself fully to personal projects and music production. Now her songs combine sincere lyrics with complex arrangements made with modern tools.',
+          bio_p4: 'The upcoming project <span class="bio-name">«don\'t help butterflies»</span> is a conceptual statement about personal path, mistakes, and self-acceptance. The debut release marks a new, confident chapter, open to experiments and collaboration.',
+          form_title: 'For commercial inquiries',
+          form_phone: 'Phone number',
+          form_submit: 'Submit request',
+          form_success: 'Request sent. Thank you!',
+          form_phone_error: 'Enter a valid phone number (at least 10 digits)',
+          interview_title: 'Interview',
+          interview_subtitle: 'On the release, path, and creativity',
+          iq1_q: 'Release',
+          iq1_a: 'First official single — «Пожар Тттравит», project «don\'t help butterflies». Genre: Pop, Dance.',
+          iq2_q: 'What inspired you to become an artist',
+          iq2_a: 'Family music, campfire evenings with the guitar, first song at school and classmates\' response, guitar teacher, hosting at karaoke — realizing that music can unite people and make evenings bright.',
+          iq3_q: 'Personal story and «don\'t help butterflies»',
+          iq3_a: 'A chance meeting with a foreigner and her tattoo of geometric shapes, each representing a life stage, became the basis for the project concept.',
+          iq4_q: 'Style and genre',
+          iq4_a: 'Main goal is not genre but conveying energy and meaning. First release is dance; plans to expand stylistics.',
+          iq5_q: 'Career: first steps',
+          iq5_a: 'School, first performance at 14, graduation, karaoke clubs, KAVIAR, charity shows, New Year corporate events. After moving — focus on personal projects and first official release «Тттравит».',
+          iq6_q: 'Message of your art',
+          iq6_a: 'We all make mistakes — it\'s your path. Accept consequences of decisions, live every moment, learn to find joy in difficulties and discover yourself.',
+          iq7_q: 'What\'s unique in your sound',
+          iq7_a: 'Meaning and support in songs; vocals: high notes, yodel, twang, compression. Listener response matters more than awards.',
+          iq8_q: 'Achievements',
+          iq8_a: 'Most important is seeing the response in people\'s hearts: sincere smiles and happy looks. Open to collaborations with artists and producers.',
+          iq9_q: 'Plans',
+          iq9_a: 'Realizing the «don\'t help butterflies» project — concept across four albums. Next step: presenting the single «Пожар Тттравит» and growing the career.',
+          events_title: 'Events',
+          events_subtitle: 'Releases and performances',
+          event1_title: 'Single «Пожар Тттравит»',
+          event1_desc: 'Release of Araya Sirayn\'s first official single. Project «don\'t help butterflies».',
+          contacts_title: 'Contacts',
+          contacts_subtitle: 'General, booking, collaboration',
+          contact_email: 'Email:',
+          contact_booking: 'Booking:'
+        }
+      };
+      let currentLang = 'ru';
+      function applyLang(lang) {
+        currentLang = lang;
+        document.querySelectorAll('[data-i18n]').forEach(function(el) {
+          var key = el.getAttribute('data-i18n');
+          if (!i18n[lang] || !i18n[lang][key]) return;
+          if (key === 'bio_p1' || key === 'bio_p2' || key === 'bio_p3' || key === 'bio_p4') {
+            el.innerHTML = i18n[lang][key];
+          } else {
+            el.textContent = i18n[lang][key];
+          }
+        });
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+          var key = el.getAttribute('data-i18n-placeholder');
+          if (i18n[lang] && i18n[lang][key]) el.placeholder = i18n[lang][key];
+        });
+        document.querySelectorAll('.lang-btn').forEach(function(btn) {
+          btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+        });
+      }
+      document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          applyLang(btn.getAttribute('data-lang'));
+        });
+      });
+      var themeToggle = document.getElementById('themeToggle');
+      var html = document.documentElement;
+      var stored = localStorage.getItem('theme');
+      if (stored) {
+        html.setAttribute('data-theme', stored);
+        themeToggle.innerHTML = stored === 'light' ? '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>' : '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>';
+      }
+      themeToggle.addEventListener('click', function() {
+        var next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        themeToggle.innerHTML = next === 'light' ? '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>' : '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>';
+      });
+      var video = document.getElementById('heroVideo');
+      var videoMute = document.getElementById('videoMute');
+      var videoVolume = document.getElementById('videoVolume');
+      if (video) {
+        video.volume = 0;
+        videoMute.addEventListener('click', function() {
+          video.muted = !video.muted;
+          videoMute.textContent = currentLang === 'ru' ? (video.muted ? 'Звук вкл' : 'Звук выкл') : (video.muted ? 'Sound on' : 'Sound off');
+        });
+        videoVolume.addEventListener('input', function() {
+          var v = this.value / 100;
+          video.volume = v;
+          video.muted = v === 0;
+        });
+      }
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
+      document.querySelectorAll('section').forEach(function(s) { observer.observe(s); });
+      document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+        a.addEventListener('click', function(e) {
+          var id = this.getAttribute('href').slice(1);
+          if (!id) return;
+          var el = document.getElementById(id);
+          if (el) {
+            e.preventDefault();
+            el.scrollIntoView({ behavior: 'smooth' });
+            document.querySelectorAll('.nav-link').forEach(function(n) { n.classList.remove('active'); });
+            var active = document.querySelector('.nav-link[href="#' + id + '"]');
+            if (active) active.classList.add('active');
+          }
+        });
+      });
+      function countPhoneDigits(str) {
+          return (str.replace(/\D/g, '') || '').length;
+        }
+      function isValidPhone(str) {
+        return countPhoneDigits(str) >= 10;
+      }
+      document.querySelectorAll('#form0, #form1, #form2, #form3, #form4 input[name="phone"]').forEach(function(input) {
+        input.addEventListener('input', function() {
+          this.value = this.value.replace(/[^\d\s\+\-\(\)]/g, '');
+          var err = this.closest('form').querySelector('.form-error');
+          if (err) { err.classList.remove('is-visible'); err.textContent = ''; }
+        });
+      });
+      document.querySelectorAll('#form0, #form1, #form2, #form3, #form4').forEach(function(form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var phoneInput = form.querySelector('input[name="phone"]');
+          var errEl = form.querySelector('.form-error');
+          var phone = phoneInput ? phoneInput.value.trim() : '';
+          if (!isValidPhone(phone)) {
+            if (errEl && i18n[currentLang] && i18n[currentLang].form_phone_error) {
+              errEl.textContent = i18n[currentLang].form_phone_error;
+              errEl.classList.add('is-visible');
+            }
+            phoneInput.focus();
+            return;
+          }
+          if (errEl) errEl.classList.remove('is-visible');
+          var btn = form.querySelector('button[type="submit"]');
+          var origText = btn.textContent;
+          if (btn.disabled) return;
+          btn.disabled = true;
+          btn.textContent = currentLang === 'ru' ? 'Отправка…' : 'Sending…';
+          fetch('https://formspree.io/f/xbdzawgd', {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          }).then(function(r) { return r.json(); }).then(function(data) {
+            if (data.ok) {
+              var block = form.closest('.form-block');
+              if (block) {
+                form.style.display = 'none';
+                var successEl = block.querySelector('.form-success');
+                if (successEl && i18n[currentLang] && i18n[currentLang].form_success) {
+                  successEl.textContent = i18n[currentLang].form_success;
+                  successEl.classList.add('is-visible');
+                }
+              } else {
+                btn.disabled = false;
+                btn.textContent = origText;
+                alert(currentLang === 'ru' ? 'Ошибка отправки. Попробуйте позже.' : 'Something went wrong. Please try again.');
+              }
+            } else {
+              btn.disabled = false;
+              btn.textContent = origText;
+              alert(currentLang === 'ru' ? 'Ошибка отправки. Попробуйте позже.' : 'Something went wrong. Please try again.');
+            }
+          }).catch(function() {
+            btn.disabled = false;
+            btn.textContent = origText;
+            alert(currentLang === 'ru' ? 'Ошибка отправки. Попробуйте позже.' : 'Something went wrong. Please try again.');
+          });
+        });
+      });
+      var burger = document.getElementById('burger');
+      var nav = document.getElementById('nav');
+      if (burger && nav) {
+        burger.addEventListener('click', function() { nav.classList.toggle('open'); });
+      }
+      function updateActiveNav() {
+        var sections = document.querySelectorAll('section.section-id');
+        var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        var headerH = document.querySelector('.header').offsetHeight;
+        var current = '';
+        sections.forEach(function(section) {
+          var top = section.offsetTop - headerH;
+          var height = section.offsetHeight;
+          if (scrollY >= top - 100 && scrollY < top + height - 100) {
+            current = section.getAttribute('id');
+          }
+        });
+        document.querySelectorAll('.nav-link').forEach(function(link) {
+          var href = link.getAttribute('href');
+          if (href === '#' + current) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+      window.addEventListener('scroll', function() {
+        requestAnimationFrame(updateActiveNav);
+      });
+      updateActiveNav();
+      var heroCommercialBtn = document.getElementById('heroCommercialBtn');
+      var heroFormWrap = document.getElementById('heroFormWrap');
+      if (heroCommercialBtn && heroFormWrap) {
+        heroCommercialBtn.addEventListener('click', function() {
+          heroFormWrap.classList.toggle('is-open');
+        });
+      }
+      if (document.getElementById('heroVideo')) {
+        var vid = document.getElementById('heroVideo');
+        vid.addEventListener('error', function() {
+          var wrap = document.querySelector('.hero-video-wrap');
+          if (wrap && wrap.querySelector('video')) {
+            wrap.style.background = 'linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%)';
+          }
+        });
+      }
+      window.addEventListener('load', function() {
+        document.body.classList.add('loaded');
+      });
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+      if (!localStorage.getItem('theme') && prefersDark.matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+</body>
+</html>
