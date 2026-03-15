@@ -2290,8 +2290,8 @@
           var v = this.value / 100;
           video.volume = v;
           if (isMobile) {
-            if (v === 0) video.muted = true;
-            updateMuteButton(v > 0);
+            video.muted = v === 0;
+            updateMuteButton();
           } else {
             video.muted = v === 0;
             updateMuteButton();
