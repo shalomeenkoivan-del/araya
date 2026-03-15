@@ -420,6 +420,22 @@
     .video-controls button:hover {
       background: rgba(37, 99, 235, 0.2);
     }
+    #videoMute.sound-off {
+      border-color: rgba(220, 38, 38, 0.5);
+      background: rgba(220, 38, 38, 0.12);
+      color: #f87171;
+    }
+    #videoMute.sound-off:hover {
+      background: rgba(220, 38, 38, 0.2);
+    }
+    #videoMute.sound-on {
+      border-color: rgba(34, 197, 94, 0.5);
+      background: rgba(34, 197, 94, 0.12);
+      color: #4ade80;
+    }
+    #videoMute.sound-on:hover {
+      background: rgba(34, 197, 94, 0.2);
+    }
     .section-title {
       font-family: var(--font-head);
       font-weight: 700;
@@ -1898,8 +1914,8 @@
       </div>
       <div class="hero-bottom">
         <div class="video-controls hero-video-controls">
-          <button type="button" id="videoMute" data-i18n="video_sound">Звук вкл</button>
-          <input type="range" id="videoVolume" min="0" max="100" value="0" style="width: 100px;">
+          <button type="button" id="videoMute" class="sound-off">Звук: выкл</button>
+          <input type="range" id="videoVolume" min="0" max="100" value="25" style="width: 100px;">
         </div>
         <div class="hero-cta-row">
           <a href="https://muzuslugi.com/DjQfz" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="btn_listen">Слушать на всех площадках</a>
@@ -2104,7 +2120,8 @@
           hero_subtitle: 'Pop · Dance',
           hero_release: 'Сингл «Пожар Тттравит» — 12.03.2026',
           btn_listen: 'Слушать на всех площадках',
-          video_sound: 'Звук вкл',
+          video_sound_off: 'Звук: выкл',
+          video_sound_on: 'Звук: вкл',
           bio_title: 'Биография',
           bio_subtitle: 'Путь артиста: "от костра и до студии"',
           bio_p1: 'Музыкант <span class="bio-name">Арая Сирэйн</span> (<span class="bio-name">Araya Sirayn</span>), <span class="bio-name">Александра Мистрикова</span>, готовится к выходу своего первого официального сингла <span class="bio-name">«Тттравит»</span>, открывающего многолетний проект <span class="bio-name">«don\'t help butterflies»</span>. Артист, для которого музыка стала способом дарить тепло и поддержку, намерен исследовать разные жанры, начиная с энергичного танцевального звучания. Её философия проста: не жанр, а точная передача энергии и смысла стоит во главе творческого процесса.',
@@ -2158,7 +2175,8 @@
           hero_subtitle: 'Pop · Dance',
           hero_release: 'Single «Пожар Тттравит» — March 12, 2026',
           btn_listen: 'Listen on all platforms',
-          video_sound: 'Sound on',
+          video_sound_off: 'Sound: off',
+          video_sound_on: 'Sound: on',
           bio_title: 'Biography',
           bio_subtitle: 'From the campfire to the studio',
           bio_p1: 'Musician <span class="bio-name">Araya Sirayn</span> (<span class="bio-name">Alexandra Mistrikova</span>) is releasing her first official single <span class="bio-name">«Тттравит»</span>, opening the long-term project <span class="bio-name">«don\'t help butterflies»</span>. For her, music is a way to give warmth and support; she explores different genres, starting with energetic dance sound. Her philosophy: not genre, but the precise transmission of energy and meaning leads the creative process.',
@@ -2219,6 +2237,10 @@
         document.querySelectorAll('.lang-btn').forEach(function(btn) {
           btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
         });
+        var vm = document.getElementById('videoMute');
+        if (vm && i18n[lang]) {
+          vm.textContent = vm.classList.contains('sound-on') ? i18n[lang].video_sound_on : i18n[lang].video_sound_off;
+        }
       }
       document.querySelectorAll('.lang-btn').forEach(function(btn) {
         btn.addEventListener('click', function() {
@@ -2242,26 +2264,46 @@
       var videoMute = document.getElementById('videoMute');
       var videoVolume = document.getElementById('videoVolume');
       if (video) {
-        video.volume = 0;
-        function resumeVideo() {
-          var p = video.play();
-          if (p && typeof p.catch === 'function') p.catch(function() {});
+        video.volume = 0.25;
+        if (videoVolume) videoVolume.value = 25;
+        function updateMuteButton() {
+          var on = !video.muted;
+          videoMute.textContent = i18n[currentLang] ? (on ? i18n[currentLang].video_sound_on : i18n[currentLang].video_sound_off) : (on ? 'Звук: вкл' : 'Звук: выкл');
+          videoMute.classList.toggle('sound-on', on);
+          videoMute.classList.toggle('sound-off', !on);
         }
+        function resumeVideo() {
+          if (video.paused) {
+            var p = video.play();
+            if (p && typeof p.catch === 'function') p.catch(function() {});
+          }
+        }
+        updateMuteButton();
         videoMute.addEventListener('click', function() {
           video.muted = !video.muted;
-          videoMute.textContent = currentLang === 'ru' ? (video.muted ? 'Звук вкл' : 'Звук выкл') : (video.muted ? 'Sound on' : 'Sound off');
           if (!video.muted && videoVolume) videoVolume.value = Math.round(video.volume * 100);
+          updateMuteButton();
           resumeVideo();
         });
         videoVolume.addEventListener('input', function() {
           var v = this.value / 100;
           video.volume = v;
           video.muted = v === 0;
+          updateMuteButton();
           resumeVideo();
         });
         document.addEventListener('visibilitychange', function() {
-          if (document.visibilityState === 'visible') resumeVideo();
+          if (document.visibilityState === 'visible') {
+            resumeVideo();
+            setTimeout(resumeVideo, 150);
+          }
         });
+        video.addEventListener('loadeddata', function tryUnmuteOnce() {
+          video.removeEventListener('loadeddata', tryUnmuteOnce);
+          video.muted = false;
+          var p = video.play();
+          if (p && typeof p.catch === 'function') p.catch(function() { video.muted = true; video.play(); });
+        }, { once: true });
       }
       var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
