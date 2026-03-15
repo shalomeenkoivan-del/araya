@@ -1278,7 +1278,7 @@
     @media (max-width: 640px) {
       .event-card {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
       }
       .event-date {
         min-width: auto;
@@ -2243,14 +2243,24 @@
       var videoVolume = document.getElementById('videoVolume');
       if (video) {
         video.volume = 0;
+        function resumeVideo() {
+          var p = video.play();
+          if (p && typeof p.catch === 'function') p.catch(function() {});
+        }
         videoMute.addEventListener('click', function() {
           video.muted = !video.muted;
           videoMute.textContent = currentLang === 'ru' ? (video.muted ? 'Звук вкл' : 'Звук выкл') : (video.muted ? 'Sound on' : 'Sound off');
+          if (!video.muted && videoVolume) videoVolume.value = Math.round(video.volume * 100);
+          resumeVideo();
         });
         videoVolume.addEventListener('input', function() {
           var v = this.value / 100;
           video.volume = v;
           video.muted = v === 0;
+          resumeVideo();
+        });
+        document.addEventListener('visibilitychange', function() {
+          if (document.visibilityState === 'visible') resumeVideo();
         });
       }
       var observer = new IntersectionObserver(function(entries) {
