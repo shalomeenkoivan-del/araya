@@ -2266,8 +2266,9 @@
       if (video) {
         video.volume = 0.25;
         if (videoVolume) videoVolume.value = 25;
-        function updateMuteButton() {
-          var on = !video.muted;
+        var isMobile = 'ontouchstart' in window || window.matchMedia('(max-width: 768px)').matches;
+        function updateMuteButton(displayOverride) {
+          var on = displayOverride !== undefined ? displayOverride : !video.muted;
           videoMute.textContent = i18n[currentLang] ? (on ? i18n[currentLang].video_sound_on : i18n[currentLang].video_sound_off) : (on ? 'Звук: вкл' : 'Звук: выкл');
           videoMute.classList.toggle('sound-on', on);
           videoMute.classList.toggle('sound-off', !on);
@@ -2288,8 +2289,13 @@
         videoVolume.addEventListener('input', function() {
           var v = this.value / 100;
           video.volume = v;
-          video.muted = v === 0;
-          updateMuteButton();
+          if (isMobile) {
+            if (v === 0) video.muted = true;
+            updateMuteButton(v > 0);
+          } else {
+            video.muted = v === 0;
+            updateMuteButton();
+          }
           resumeVideo();
         });
         document.addEventListener('visibilitychange', function() {
