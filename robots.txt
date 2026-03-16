@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Закрыть служебные пути (если есть)
+Disallow: /media/.gitkeep
+Disallow: /tmp/
+Disallow: /cache/
+
+# Запрет индексации дублей с параметрами
+Disallow: /*?utm_
+Disallow: /*?ref=
+
+Sitemap: https://araya-sirayn.ru/sitemap.xml
